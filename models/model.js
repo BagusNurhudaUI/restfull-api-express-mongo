@@ -7,7 +7,7 @@ const dataSchema = new mongoose.Schema({
     },
     age: {
         required: true,
-        type: String
+        type: Number
     }
 
 })

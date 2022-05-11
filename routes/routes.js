@@ -11,7 +11,7 @@ router.post('/post', async (req, res) => {
     })
     try {
         const dataToSave = await data.save();
-        res.status(200).json(dataToSave)
+        res.status(200).json(data)
     }
     catch (error) {
         console.log(error.message);
@@ -38,8 +38,8 @@ router.post('/test', (req, res) => {
 })
 
 //Get by ID Method
-router.get('/getOne/:id', (req, res) => {
-    res.send(req.params.id)
+router.get('/getOne/:id', async(req, res) => {
+    res.json(await Model.findById(req.params.id))
 })
 
 //Update by ID Method
